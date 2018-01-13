@@ -1,20 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Header from "../Header";
 import "./Home.css";
 import { withRouter } from "react-router-dom";
+import logo from "../../logo1.png";
 
 const Home = withRouter(({ history }) => {
   return (
     <div>
-      <Header subhead={"Welcome"} />
       <div className="explorer-landing">
         <section className="header-area">
           <div className="container">
             <div className="row">
               <div className="section-bg col-lg-10 col-lg-offset-1 text-center">
                 <h1 className="section-heading">
-                  Bonfire Adventures - Tours Explorer
+                  <img src={logo} alt="img" />
                 </h1>
                 <p className="subtitle">
                   Discover and Experience the best of Kenya Tourism
@@ -26,7 +25,7 @@ const Home = withRouter(({ history }) => {
                   <div className="box all-link">
                     <Link
                       className="btn btn-default"
-                      to={`${process.env.PUBLIC_URL}/explorer`}
+                      to={`${process.env.PUBLIC_URL}/map`}
                     >
                       <div className="vertical-align"> View Map</div>
                     </Link>
