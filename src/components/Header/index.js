@@ -28,8 +28,8 @@ const Header = props => {
           style={{ backgroundImage: brand }}
         />
         <div className="navbar-title">
-          Bonfire Adventures &nbsp;
-          <span className="title subhead">| Tours Explorer</span>
+          Kenya Destinations &nbsp;
+          <span className="title subhead">| Explorer</span>
         </div>
       </div>
       <div id="navbar" className="navbar-collapse collapse">
