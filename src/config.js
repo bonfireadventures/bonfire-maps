@@ -1,7 +1,7 @@
 export const mapboxGLOptions = {
     mapbox_accessToken: 'pk.eyJ1IjoiY3dob25nbnljIiwiYSI6ImNpczF1MXdrdjA4MXcycXA4ZGtyN2x5YXIifQ.3HGyME8tBs' +
         '6BnljzUVIt4Q',
-    // mapStyle: 'mapbox://styles/mapbox/streets-v9',
+    mapStyle: 'mapbox://styles/mapbox/streets-v9',
     center: [
       37.879778, 0.241974 //center the map to kenya
     ],
