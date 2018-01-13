@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import "./Header.css";
 import logo from "../../logo.png";
 
+const brand = `url(${logo})`;
+
 const Header = props => {
   return (
     <nav className="navbar navbar-default navbar-fixed-top">
@@ -23,7 +25,7 @@ const Header = props => {
         <Link
           to={`${process.env.PUBLIC_URL}/`}
           className="navbar-brand"
-          style={{ backgroundImage: logo }}
+          style={{ backgroundImage: brand }}
         />
         <div className="navbar-title">
           Bonfire Adventures &nbsp;
