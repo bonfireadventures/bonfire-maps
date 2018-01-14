@@ -3,7 +3,7 @@ import _superagent from "superagent";
 
 const superagent = superagentPromise(_superagent, global.Promise);
 
-const API_ROOT = "https://erick-otenyo.carto.com/api/v2/sql?";
+const API_ROOT = "https://erick-otenyo.carto.com/api/v2/sql?q=";
 
 const encode = encodeURIComponent;
 const responseBody = res => res.body;
@@ -18,13 +18,13 @@ const tokenPlugin = req => {
 const requests = {
   get: url =>
     superagent
-      .get(`${API_ROOT}${url}`)
+      .get(`${API_ROOT}${url}&format=geojson`)
       //   .use(tokenPlugin)
       .then(responseBody)
 };
 
 const Data = {
-  bonfire: () => requests.get(`${encode("SELECT * from digischool")}`)
+  magical: () => requests.get(`${encode("SELECT * from sites_magical")}`)
 };
 
 export default {
