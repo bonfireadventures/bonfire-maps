@@ -6,6 +6,8 @@ import Home from "./Home";
 import Mapp from "./Map";
 import { connect } from "react-redux";
 import "./App.css";
+
+
 const mapStateToProps = state => {
   return {
     appLoaded: state.common.appLoaded,
