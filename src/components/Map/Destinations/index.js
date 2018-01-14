@@ -1,16 +1,8 @@
 import React from "react";
 import { JaneLayer, MapLayer, Source } from "jane-maps";
 import SideBar from "./SideBar";
-import { connect } from "react-redux";
-
-const mapStateToProps = state => ({
-  ...state.magical,
-  appName: state.common.appName,
-  token: state.common.token
-});
 
 const Destinations = props => {
-  console.log(props)
   return (
     <JaneLayer
       id="feature"
@@ -35,4 +27,4 @@ const Destinations = props => {
   );
 };
 
-export default connect(mapStateToProps)(Destinations);
+export default Destinations;
