@@ -24,7 +24,14 @@ const requests = {
 };
 
 const Data = {
-  magical: () => requests.get(`${encode("SELECT * from sites_magical")}`)
+  magical: sql => {
+    if (sql) {
+      return requests.get(
+        `${encode("SELECT * from sites_magical")} ${encode(sql)}`
+      );
+    }
+    return requests.get(`${encode("SELECT * from sites_magical")}`);
+  }
 };
 
 export default {
