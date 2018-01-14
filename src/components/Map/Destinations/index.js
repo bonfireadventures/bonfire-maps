@@ -1,22 +1,16 @@
 import React from "react";
 import { JaneLayer, MapLayer, Source } from "jane-maps";
 import SideBar from "./SideBar";
+import { connect } from "react-redux";
 
-const featureSource = {
-  type: "FeatureCollection",
-  features: [
-    {
-      type: "Feature",
-      properties: {},
-      geometry: {
-        type: "Point",
-        coordinates: [36.8219, -1.2921]
-      }
-    }
-  ]
-};
+const mapStateToProps = state => ({
+  ...state.magical,
+  appName: state.common.appName,
+  token: state.common.token
+});
 
-const Destinations = () => {
+const Destinations = props => {
+  console.log(props)
   return (
     <JaneLayer
       id="feature"
@@ -25,7 +19,7 @@ const Destinations = () => {
       defaultSelected
       component={<SideBar />}
     >
-      <Source id="feature" type="geojson" data={featureSource} />
+      <Source id="feature" type="geojson" data={props.sites} />
 
       <MapLayer
         id="feature"
@@ -41,4 +35,4 @@ const Destinations = () => {
   );
 };
 
-export default Destinations;
+export default connect(mapStateToProps)(Destinations);
