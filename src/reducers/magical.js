@@ -1,4 +1,8 @@
-import { MAP_PAGE_LOADED } from "../constants/actionTypes";
+import {
+  MAP_PAGE_LOADED,
+  ASYNC_START,
+  ASYNC_END
+} from "../constants/actionTypes";
 
 // const defaultState = {
 //   filterDimensions: {
@@ -21,6 +25,16 @@ export default (state = {}, action) => {
       return {
         ...state,
         sites: action.payload
+      };
+    case ASYNC_START:
+      if (action.subtype === MAP_PAGE_LOADED) {
+        return { ...state, inProgress: true };
+      }
+      break;
+    case ASYNC_END:
+      return {
+        ...state,
+        inProgress: false
       };
     default:
       return state;
