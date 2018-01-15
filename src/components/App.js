@@ -6,7 +6,6 @@ import Home from "./Home";
 import Mapp from "./Map";
 import { connect } from "react-redux";
 import "./App.css";
-import LoadingBar from "react-redux-loading-bar";
 
 const mapStateToProps = state => {
   return {
@@ -28,12 +27,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <header>
-            <LoadingBar
-              style={{ backgroundColor: "rgb(0, 188, 212)", zIndex: 1 }}
-            />
-            <Header />
-          </header>
+          <Header />
           <Switch>
             <Route exact path={`${process.env.PUBLIC_URL}/`} component={Home} />
             <Route path={`${process.env.PUBLIC_URL}/map`} component={Mapp} />

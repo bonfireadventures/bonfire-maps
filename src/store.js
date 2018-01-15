@@ -3,7 +3,6 @@ import { createLogger } from "redux-logger";
 import { composeWithDevTools } from "redux-devtools-extension/developmentOnly";
 import { promiseMiddleware } from "./middleware";
 import reducer from "./reducer";
-import { loadingBarMiddleware } from 'react-redux-loading-bar'
 import { routerMiddleware } from "react-router-redux";
 import createHistory from "history/createBrowserHistory";
 
@@ -14,7 +13,7 @@ const myRouterMiddleware = routerMiddleware(history);
 
 const getMiddleware = () => {
   if (process.env.NODE_ENV === "production") {
-    return applyMiddleware(loadingBarMiddleware,myRouterMiddleware, promiseMiddleware);
+    return applyMiddleware(myRouterMiddleware, promiseMiddleware);
   } else {
     // Enable additional logging in non-production environments.
     return applyMiddleware(

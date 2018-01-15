@@ -34,11 +34,6 @@ class Mapp extends Component {
   }
 
   render() {
-    let loading = false;
-    if (!this.props.sites) {
-      loading = true;
-    }
-    console.log(loading);
     return (
       <div>
         <MuiThemeProvider>
