@@ -7,14 +7,7 @@ import injectTapEventPlugin from "react-tap-event-plugin";
 import { Jane } from "jane-maps";
 import { mapboxGLOptions } from "../../config";
 import Destinations from "./Destinations";
-
 import SidePop from "./SidePop";
-
-import {
-  CSSTransition,
-  CSSTransitionGroup,
-  transit
-} from "react-css-transition";
 
 import "jane-maps/dist/styles.css";
 

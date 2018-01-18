@@ -31,8 +31,6 @@ const FadeInOutGroup = props => (
   </CSSTransitionGroup>
 );
 
-const itemx = { items: ["hello", "world", "click", "me"] };
-
 const SidePop = props => {
   let items;
   if (props.clickedDest && props.clickedDest.length > 0) {

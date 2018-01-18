@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { JaneLayer, MapLayer, Source } from "jane-maps";
 import SideBar from "./SideBar";
 
