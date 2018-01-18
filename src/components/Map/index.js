@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { MAP_PAGE_LOADED } from "../../constants/actionTypes";
+import { MAP_PAGE_LOADED, DEST_CLICKED } from "../../constants/actionTypes";
 import agent from "../../agent";
 import { connect } from "react-redux";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
@@ -7,6 +7,14 @@ import injectTapEventPlugin from "react-tap-event-plugin";
 import { Jane } from "jane-maps";
 import { mapboxGLOptions } from "../../config";
 import Destinations from "./Destinations";
+
+import SidePop from "./SidePop";
+
+import {
+  CSSTransition,
+  CSSTransitionGroup,
+  transit
+} from "react-css-transition";
 
 import "jane-maps/dist/styles.css";
 
@@ -19,7 +27,10 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  onLoad: (payload, category) => dispatch({ type: MAP_PAGE_LOADED, payload })
+  onLoad: (payload, category) => dispatch({ type: MAP_PAGE_LOADED, payload }),
+  onDestClick: features => {
+    dispatch({ type: DEST_CLICKED, features });
+  }
 });
 
 class Mapp extends Component {
@@ -32,6 +43,10 @@ class Mapp extends Component {
     }
     this.props.onLoad(sitesPromise());
   }
+  handDestClick(features, map) {
+    this.props.onDestClick(features);
+    console.log("clicked");
+  }
 
   render() {
     return (
@@ -39,8 +54,14 @@ class Mapp extends Component {
         <MuiThemeProvider>
           <div className="fullscreen">
             <Jane mapboxGLOptions={mapboxGLOptions}>
-              <Destinations sites={this.props.sites} />
+              <Destinations
+                sites={this.props.sites}
+                onDestClick={this.handDestClick.bind(this)}
+              />
             </Jane>
+            <div className="selected-features" style={{ right: "0px" }}>
+              <SidePop />
+            </div>
           </div>
         </MuiThemeProvider>
       </div>
