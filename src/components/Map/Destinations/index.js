@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { JaneLayer, MapLayer, Source } from "jane-maps";
 import SideBar from "./SideBar";
 
@@ -22,6 +22,7 @@ const Destinations = props => {
           "circle-color": "steelblue",
           "circle-opacity": 0.7
         }}
+        onClick={props.onDestClick}
       />
     </JaneLayer>
   );
