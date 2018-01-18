@@ -7,6 +7,7 @@
     "jane-maps": "^0.0.23",
     "material-ui": "^0.20.0",
     "react": "^15.6.1",
+    "react-css-transition": "^0.7.4",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
