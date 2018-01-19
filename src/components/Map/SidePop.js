@@ -17,8 +17,8 @@ const SelectedFeatures = props => (
   <CSSTransition
     {...props}
     defaultStyle={{ opacity: 0 }}
-    enterStyle={{ opacity: transit(1.0, 500, "ease-in-out") }}
-    leaveStyle={{ opacity: transit(0, 500, "ease-in-out") }}
+    enterStyle={{ opacity: transit(1.0, 50, "ease-in-out") }}
+    leaveStyle={{ opacity: transit(0,50, "ease-in-out") }}
     activeStyle={{ opacity: 1.0 }}
   />
 );
@@ -34,7 +34,6 @@ const SelectedFeaturesGroup = props => (
 const SidePop = props => {
   let features;
   if (props.clickedDest && props.clickedDest.length > 0) {
-    console.log(props.clickedDest);
     features = props.clickedDest.map((feature, i) => {
       const dest = feature.properties;
       return (
@@ -45,9 +44,9 @@ const SidePop = props => {
           >
             <div className="title" />
             <div className="subtitle">{dest.title}</div>
-            <div className="subtitle">235 East Broadway</div>
+            <div className="subtitle">{dest.city_town}</div>
             <div className="subtitle">
-              <span className="operated-by">Operated by:</span>
+              <span className="operated-by"></span>
             </div>
             <i className="fa fa-chevron-right" />
           </div>
