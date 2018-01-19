@@ -39,19 +39,28 @@ class Mapp extends Component {
     }
     this.props.onLoad(sitesPromise());
   }
-  handDestClick(features, map) {
+  handleDestClick(features, map) {
     this.props.onDestClick(features);
   }
-
+  handleOnDragEnd() {
+    this.props.onDestClick([]);
+  }
+  handleOnZoomEnd() {
+    this.props.onDestClick([]);
+  }
   render() {
     return (
       <div>
         <MuiThemeProvider>
           <div className="fullscreen">
-            <Jane mapboxGLOptions={mapboxGLOptions}>
+            <Jane
+              mapboxGLOptions={mapboxGLOptions}
+              onDragEnd={this.handleOnDragEnd.bind(this)}
+              onZoomEnd={this.handleOnZoomEnd.bind(this)}
+            >
               <Destinations
                 sites={this.props.sites}
-                onDestClick={this.handDestClick.bind(this)}
+                onDestClick={this.handleDestClick.bind(this)}
               />
             </Jane>
             <div className="selected-features" style={{ right: "0px" }}>
