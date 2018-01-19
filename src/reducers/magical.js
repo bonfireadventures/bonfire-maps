@@ -2,7 +2,7 @@ import {
   MAP_PAGE_LOADED,
   ASYNC_START,
   ASYNC_END,
-  DEST_CLICKED
+  SET_SELECTED_DESTINATION_FEATURES
 } from "../constants/actionTypes";
 
 // const defaultState = {
@@ -37,7 +37,7 @@ export default (state = {}, action) => {
         ...state,
         inProgress: false
       };
-    case DEST_CLICKED:
+    case SET_SELECTED_DESTINATION_FEATURES:
       return {
         ...state,
         clickedDest: action.features
