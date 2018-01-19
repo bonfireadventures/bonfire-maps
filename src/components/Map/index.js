@@ -1,5 +1,8 @@
 import React, { Component } from "react";
-import { MAP_PAGE_LOADED, DEST_CLICKED } from "../../constants/actionTypes";
+import {
+  MAP_PAGE_LOADED,
+  SET_SELECTED_DESTINATION_FEATURES
+} from "../../constants/actionTypes";
 import agent from "../../agent";
 import { connect } from "react-redux";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
@@ -22,7 +25,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
   onLoad: (payload, category) => dispatch({ type: MAP_PAGE_LOADED, payload }),
   onDestClick: features => {
-    dispatch({ type: DEST_CLICKED, features });
+    dispatch({ type: SET_SELECTED_DESTINATION_FEATURES, features });
   }
 });
 
@@ -38,7 +41,6 @@ class Mapp extends Component {
   }
   handDestClick(features, map) {
     this.props.onDestClick(features);
-    console.log("clicked");
   }
 
   render() {
