@@ -43,10 +43,10 @@ class Mapp extends Component {
     this.props.onDestClick(features);
   }
   handleOnDragEnd() {
-    this.props.onDestClick([]);
+    this.props.onDestClick(null);
   }
   handleOnZoomEnd() {
-    this.props.onDestClick([]);
+    this.props.onDestClick(null);
   }
   render() {
     return (
@@ -61,6 +61,7 @@ class Mapp extends Component {
               <Destinations
                 sites={this.props.sites}
                 onDestClick={this.handleDestClick.bind(this)}
+                selectedFeature={this.props.clickedDest}
               />
             </Jane>
             <div className="selected-features" style={{ right: "0px" }}>

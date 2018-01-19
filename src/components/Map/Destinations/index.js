@@ -3,6 +3,32 @@ import { JaneLayer, MapLayer, Source } from "jane-maps";
 import SideBar from "./SideBar";
 
 const Destinations = props => {
+  const renderFeatureOutline = () => {
+    if (!props.selectedFeature) {
+      console.log(props.selectedFeature);
+      return null;
+    }
+    return [
+      <Source
+        id="selected-feature-outline"
+        type="geojson"
+        data={{
+          type: "FeatureCollection",
+          features: [props.selectedFeature[0]]
+        }}
+      />,
+      <MapLayer
+        id="selected-feature-outline"
+        source="selected-feature-outline"
+        type="circle"
+        paint={{
+          "circle-color": "#000",
+          "circle-opacity": 0.7,
+          "circle-radius": 15
+        }}
+      />
+    ].map((child, index) => ({ ...child, key: index }));
+  };
   return (
     <JaneLayer
       id="feature"
@@ -12,7 +38,6 @@ const Destinations = props => {
       component={<SideBar />}
     >
       <Source id="feature" type="geojson" data={props.sites} />
-
       <MapLayer
         id="feature"
         source="feature"
@@ -24,6 +49,7 @@ const Destinations = props => {
         }}
         onClick={props.onDestClick}
       />
+      {renderFeatureOutline()}
     </JaneLayer>
   );
 };
