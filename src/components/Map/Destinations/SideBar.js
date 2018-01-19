@@ -6,22 +6,21 @@ const SideBar = props => {
   return (
     <div>
       <Tabs className="sidebar-tabs">
-        <Tab label="Data" style={{backgroundColor:"rgb(177, 177, 177)"}}>
+        <Tab label="Filter" style={{ backgroundColor: "rgb(177, 177, 177)" }}>
           <div className="sidebar-tab-content">
             <div
               style={{
                 padding: "15px"
               }}
             >
-              <h4>Kenya Counties</h4>
+              <h4>Kenya Destinations</h4>
             </div>
           </div>
         </Tab>
-        <Tab label="About">
+        <Tab label="List" style={{ backgroundColor: "rgb(177, 177, 177)" }}>
           <div className="sidebar-tab-content">
             <div className="padded">
-              <h4>Source of Data</h4>
-              <p>The Counties data is obtained from IEBC</p>
+              <p>List data here</p>
               <p />
             </div>
           </div>

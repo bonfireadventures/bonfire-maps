@@ -3755,6 +3755,21 @@ jane-maps@^0.0.23:
     react-dnd-html5-backend "^2.2.3"
     underscore "^1.8.3"
 
+"jane-maps@https://github.com/spatialkenya/jane-maps.git":
+  version "0.0.22"
+  resolved "https://github.com/spatialkenya/jane-maps.git#4ba00829b86a0d5add9eddf45e42f2804d095a50"
+  dependencies:
+    classnames "^2.2.5"
+    jquery "^3.1.1"
+    mapbox-gl "^0.37.0"
+    material-ui "^0.18.1"
+    prop-types "^15.5.10"
+    react-autosuggest "^9.0.1"
+    react-bootstrap "^0.31.0"
+    react-dnd "^2.2.3"
+    react-dnd-html5-backend "^2.2.3"
+    underscore "^1.8.3"
+
 jest-changed-files@^20.0.3:
   version "20.0.3"
   resolved "https://registry.yarnpkg.com/jest-changed-files/-/jest-changed-files-20.0.3.tgz#9394d5cc65c438406149bef1bf4d52b68e03e3f8"

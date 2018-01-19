@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "history": "^4.7.2",
-    "jane-maps": "^0.0.23",
+    "jane-maps": "https://github.com/spatialkenya/jane-maps.git",
     "material-ui": "^0.20.0",
     "react": "^15.6.1",
     "react-css-transition": "^0.7.4",
