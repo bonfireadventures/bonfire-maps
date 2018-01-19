@@ -13,7 +13,7 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-const FadeInOut = props => (
+const SelectedFeatures = props => (
   <CSSTransition
     {...props}
     defaultStyle={{ opacity: 0 }}
@@ -23,21 +23,20 @@ const FadeInOut = props => (
   />
 );
 
-const FadeInOutGroup = props => (
+const SelectedFeaturesGroup = props => (
   <CSSTransitionGroup {...props}>
     {React.Children.map(props.children, child => (
-      <FadeInOut>{child}</FadeInOut>
+      <SelectedFeatures>{child}</SelectedFeatures>
     ))}
   </CSSTransitionGroup>
 );
 
 const SidePop = props => {
-  let items;
+  let features;
   if (props.clickedDest && props.clickedDest.length > 0) {
     console.log(props.clickedDest);
-    items = props.clickedDest.map((item, i) => {
-      const dest = item.properties;
-      console.log(dest);
+    features = props.clickedDest.map((feature, i) => {
+      const dest = feature.properties;
       return (
         <a href="/facility/40035" key={i}>
           <div
@@ -59,7 +58,7 @@ const SidePop = props => {
 
   return (
     <div>
-      <FadeInOutGroup>{items}</FadeInOutGroup>
+      <SelectedFeaturesGroup>{features}</SelectedFeaturesGroup>
     </div>
   );
 };
