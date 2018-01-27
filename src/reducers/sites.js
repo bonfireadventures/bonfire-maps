@@ -25,7 +25,8 @@ export default (state = {}, action) => {
     case MAP_PAGE_LOADED:
       return {
         ...state,
-        sites: action.payload
+        magical: action.payload[0],
+        bonfire: action.payload[1].rows
       };
     case ASYNC_START:
       if (action.subtype === MAP_PAGE_LOADED) {

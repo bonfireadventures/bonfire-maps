@@ -49,7 +49,7 @@ const Destinations = props => {
         }}
         onClick={props.onDestClick}
       />
-      {renderFeatureOutline()}
+      {/* {renderFeatureOutline()} */}
     </JaneLayer>
   );
 };
