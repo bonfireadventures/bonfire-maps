@@ -7,6 +7,7 @@
     "jane-maps": "https://github.com/spatialkenya/jane-maps.git",
     "material-ui": "^0.20.0",
     "react": "^15.6.1",
+    "react-autosuggest": "^9.3.2",
     "react-css-transition": "^0.7.4",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.6",
