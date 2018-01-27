@@ -61,7 +61,7 @@ const SidePop = props => {
             <div className="title" />
             <div className="subtitle">{dest.title}</div>
             <div className="subtitle">{dest.city_town}</div>
-            <div className="subtitle">{deals}</div>
+            <div>{deals}</div>
             <i className="fa fa-chevron-right" />
           </div>
         </a>

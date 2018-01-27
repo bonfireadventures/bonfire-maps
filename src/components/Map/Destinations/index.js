@@ -43,9 +43,11 @@ const Destinations = props => {
         source="feature"
         type="circle"
         paint={{
-          "circle-radius": 10,
-          "circle-color": "steelblue",
-          "circle-opacity": 0.7
+          "circle-radius": 8,
+          "circle-color": "#fff200",
+          "circle-stroke-width":3,
+          "circle-stroke-color":"#706632",
+          "circle-opacity": 0.9
         }}
         onClick={props.onDestClick}
       />
