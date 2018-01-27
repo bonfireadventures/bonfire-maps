@@ -6,6 +6,7 @@ import {
   CSSTransitionGroup,
   transit
 } from "react-css-transition";
+import { Card, CardHeader } from "material-ui";
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -36,8 +37,20 @@ const SidePop = props => {
   if (props.clickedDest && props.clickedDest.length > 0) {
     features = props.clickedDest.map((feature, i) => {
       const dest = feature.properties;
+      console.log(dest.id);
       const bdeals = props.bonfire.filter(deal => deal.magical_id === dest.id);
-      console.log(bdeals);
+
+      let deals;
+
+      if (bdeals.length > 0) {
+        deals = bdeals.map((deal, i) => (
+          <Card key={i}>
+            <CardHeader title={deal.title} avatar={deal.img_url} />
+          </Card>
+        ));
+      }
+
+      console.log(deals);
 
       return (
         <a href="/facility/40035" key={i}>
@@ -48,9 +61,7 @@ const SidePop = props => {
             <div className="title" />
             <div className="subtitle">{dest.title}</div>
             <div className="subtitle">{dest.city_town}</div>
-            <div className="subtitle">
-              <span className="operated-by" />
-            </div>
+            <div className="subtitle">{deals}</div>
             <i className="fa fa-chevron-right" />
           </div>
         </a>
