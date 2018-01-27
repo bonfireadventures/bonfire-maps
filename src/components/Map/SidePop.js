@@ -9,7 +9,7 @@ import {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    ...state.magical
+    ...state.sites
   };
 };
 
@@ -18,7 +18,7 @@ const SelectedFeatures = props => (
     {...props}
     defaultStyle={{ opacity: 0 }}
     enterStyle={{ opacity: transit(1.0, 50, "ease-in-out") }}
-    leaveStyle={{ opacity: transit(0,50, "ease-in-out") }}
+    leaveStyle={{ opacity: transit(0, 50, "ease-in-out") }}
     activeStyle={{ opacity: 1.0 }}
   />
 );
@@ -36,6 +36,9 @@ const SidePop = props => {
   if (props.clickedDest && props.clickedDest.length > 0) {
     features = props.clickedDest.map((feature, i) => {
       const dest = feature.properties;
+      const bdeals = props.bonfire.filter(deal => deal.magical_id === dest.id);
+      console.log(bdeals);
+
       return (
         <a href="/facility/40035" key={i}>
           <div
@@ -46,7 +49,7 @@ const SidePop = props => {
             <div className="subtitle">{dest.title}</div>
             <div className="subtitle">{dest.city_town}</div>
             <div className="subtitle">
-              <span className="operated-by"></span>
+              <span className="operated-by" />
             </div>
             <i className="fa fa-chevron-right" />
           </div>
