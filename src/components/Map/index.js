@@ -14,11 +14,13 @@ import SidePop from "./SidePop";
 
 import "jane-maps/dist/styles.css";
 
+const Promise = global.Promise;
+
 injectTapEventPlugin();
 
 const mapStateToProps = state => {
   return {
-    ...state.magical
+    ...state.sites
   };
 };
 
@@ -31,13 +33,9 @@ const mapDispatchToProps = dispatch => ({
 
 class Mapp extends Component {
   componentWillMount() {
-    const sitesPromise = agent.Data.magical;
-    if (this.props.category) {
-      this.props.onLoad(
-        sitesPromise(`where attractiontype=${this.props.category}`)
-      );
-    }
-    this.props.onLoad(sitesPromise());
+    const magicalPromise = agent.Data.magical;
+    const bonfirePromise = agent.Data.bonfire;
+    this.props.onLoad(Promise.all([magicalPromise(), bonfirePromise()]));
   }
   handleDestClick(features, map) {
     this.props.onDestClick(features);
@@ -59,7 +57,7 @@ class Mapp extends Component {
               onZoomEnd={this.handleOnZoomEnd.bind(this)}
             >
               <Destinations
-                sites={this.props.sites}
+                sites={this.props.magical}
                 onDestClick={this.handleDestClick.bind(this)}
                 selectedFeature={this.props.clickedDest}
               />
