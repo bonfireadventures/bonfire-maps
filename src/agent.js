@@ -16,9 +16,9 @@ const responseBody = res => res.body;
 // };
 
 const requests = {
-  get: url =>
+  get: (url, format) =>
     superagent
-      .get(`${API_ROOT}${url}&format=geojson`)
+      .get(`${API_ROOT}${url}&format=${format}`)
       //   .use(tokenPlugin)
       .then(responseBody)
 };
@@ -27,10 +27,20 @@ const Data = {
   magical: sql => {
     if (sql) {
       return requests.get(
-        `${encode("SELECT * from sites_magical")} ${encode(sql)}`
+        `${encode("SELECT * from sites_magical")} ${encode(sql)}`,
+        "geojson"
       );
     }
-    return requests.get(`${encode("SELECT * from sites_magical")}`);
+    return requests.get(`${encode("SELECT * from sites_magical")}`, "geojson");
+  },
+  bonfire: sql => {
+    if (sql) {
+      return requests.get(
+        `${encode("SELECT * from bonfire_deals")} ${encode(sql)}`,
+        "json"
+      );
+    }
+    return requests.get(`${encode("SELECT * from bonfire_deals")}`, "json");
   }
 };
 
