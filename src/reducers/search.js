@@ -3,6 +3,7 @@ import {
   LOAD_SEARCH_SUGGESTIONS,
   SET_SUGGESTION_VALUE,
   SET_SELECTED_SUGGESTION,
+  CLEAR_SUGGESTIONS,
   UNSET_SELECTED_SUGGESTION
 } from "../constants/actionTypes";
 
@@ -33,11 +34,17 @@ export default (state = defaultState, action) => {
         ...state,
         selectedSuggestion: action.selectedFeature
       };
+    case CLEAR_SUGGESTIONS:
+      return {
+        ...state,
+        // selectedSuggestion: null,
+        suggestions: []
+      };
     case UNSET_SELECTED_SUGGESTION:
       return {
         ...state,
-        value: "",
-        suggestions: [],
+        // selectedSuggestion: null,
+        value:"",
         selectedSuggestion: null
       };
     default:

@@ -9,6 +9,7 @@ import {
   LOAD_SEARCH_SUGGESTIONS,
   SET_SUGGESTION_VALUE,
   SET_SELECTED_SUGGESTION,
+  CLEAR_SUGGESTIONS,
   UNSET_SELECTED_SUGGESTION
 } from "../../constants/actionTypes";
 
@@ -42,7 +43,8 @@ const mapDispatchToProps = dispatch => ({
   setSearchValue: value => dispatch({ type: SET_SUGGESTION_VALUE, value }),
   setSelectedSuggestion: selectedFeature =>
     dispatch({ type: SET_SELECTED_SUGGESTION, selectedFeature }),
-  clearSuggestions: () => dispatch({ type: UNSET_SELECTED_SUGGESTION })
+  clearSuggestions: () => dispatch({ type: CLEAR_SUGGESTIONS }),
+  unsetSelectedSuggestion: () => dispatch({ type: UNSET_SELECTED_SUGGESTION })
 });
 
 class SearchBar extends Component {
@@ -51,7 +53,7 @@ class SearchBar extends Component {
     this.props.loadSearchSuggestions(searchPromise(value.value));
   };
   onSuggestionsClearRequested = () => {
-    // this.props.clearSuggestions();
+    this.props.clearSuggestions();
   };
   onSearchChange = (e, obj) => {
     this.props.setSearchValue(obj.newValue);
@@ -62,7 +64,7 @@ class SearchBar extends Component {
   };
 
   clearSearchInput = () => {
-    this.props.clearSuggestions();
+    this.props.unsetSelectedSuggestion();
   };
   render() {
     const inputProps = {
@@ -94,7 +96,10 @@ class SearchBar extends Component {
             onSuggestionSelected={this.onSuggestionSelected}
           />
           <IconButton>
-            <FontIcon className={"fa fa-search"} />
+          {this.props.selectedSuggestion ?
+                <FontIcon className={'fa fa-times'} onClick={this.clearSearchInput} /> :
+                <FontIcon className={'fa fa-search'} />
+              }
           </IconButton>
         </ToolbarGroup>
       </Toolbar>
