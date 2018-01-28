@@ -74,6 +74,7 @@ class Mapp extends Component {
                     feature={searchResult}
                     label={searchResult.properties.title}
                     flyTo
+                    zoom={10}
                   />
                 </JaneLayer>
               )}

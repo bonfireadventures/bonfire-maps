@@ -22,7 +22,6 @@ const placeholders = [
 ];
 
 const getSuggestionValue = suggestion => {
-  console.log(suggestion.properties.title);
   return suggestion.properties.title;
 };
 

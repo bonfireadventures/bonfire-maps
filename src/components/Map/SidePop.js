@@ -37,7 +37,6 @@ const SidePop = props => {
   if (props.clickedDest && props.clickedDest.length > 0) {
     features = props.clickedDest.map((feature, i) => {
       const dest = feature.properties;
-      console.log(dest.id);
       const bdeals = props.bonfire.filter(deal => deal.magical_id === dest.id);
 
       let deals;
@@ -49,9 +48,6 @@ const SidePop = props => {
           </Card>
         ));
       }
-
-      console.log(deals);
-
       return (
         <a href="/facility/40035" key={i}>
           <div
