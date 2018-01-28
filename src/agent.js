@@ -44,7 +44,8 @@ const Data = {
   },
   search: query => {
     return requests.get(
-      `https://erick-otenyo.carto.com/api/v2/sql?q=SELECT * FROM sites_magical where title ilike '${query}%25'&format=geojson`
+      `SELECT * FROM sites_magical where title ilike '${query}%25'`,
+      "geojson"
     );
   }
 };

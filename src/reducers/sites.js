@@ -32,7 +32,7 @@ export default (state = {}, action) => {
       if (action.subtype === MAP_PAGE_LOADED) {
         return { ...state, inProgress: true };
       }
-      break;
+      return { ...state };
     case ASYNC_END:
       return {
         ...state,
