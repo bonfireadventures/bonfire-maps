@@ -13,6 +13,14 @@ import {
   UNSET_SELECTED_SUGGESTION
 } from "../../constants/actionTypes";
 
+const placeholders = [
+  "Hells Gate",
+  "Lake Nakuru",
+  "Mombasa",
+  "Nairobi",
+  "Diani"
+];
+
 const getSuggestionValue = suggestion => {
   console.log(suggestion.properties.title);
   return suggestion.properties.title;
@@ -28,7 +36,7 @@ const renderSuggestion = suggestion => {
 };
 
 const shouldRenderSuggestions = value => {
-  return value.trim().length > 3;
+  return value.trim().length > 2;
 };
 
 const mapStateToProps = (state, ownProps) => {
@@ -68,7 +76,9 @@ class SearchBar extends Component {
   };
   render() {
     const inputProps = {
-      placeholder: "Search for a destination",
+      placeholder: `Try "${
+        placeholders[Math.floor(Math.random() * placeholders.length)]
+      }"`,
       value: this.props.value,
       onChange: this.onSearchChange
     };
@@ -96,10 +106,14 @@ class SearchBar extends Component {
             onSuggestionSelected={this.onSuggestionSelected}
           />
           <IconButton>
-          {this.props.selectedSuggestion ?
-                <FontIcon className={'fa fa-times'} onClick={this.clearSearchInput} /> :
-                <FontIcon className={'fa fa-search'} />
-              }
+            {this.props.selectedSuggestion ? (
+              <FontIcon
+                className={"fa fa-times"}
+                onClick={this.clearSearchInput}
+              />
+            ) : (
+              <FontIcon className={"fa fa-search"} />
+            )}
           </IconButton>
         </ToolbarGroup>
       </Toolbar>

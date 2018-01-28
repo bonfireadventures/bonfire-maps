@@ -7,7 +7,7 @@ import agent from "../../agent";
 import { connect } from "react-redux";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import injectTapEventPlugin from "react-tap-event-plugin";
-import { Jane, LocalSearch } from "jane-maps";
+import { Jane, JaneLayer, LocalSearch, Marker } from "jane-maps";
 import { mapboxGLOptions } from "../../config";
 import Destinations from "./Destinations";
 import SidePop from "./SidePop";
@@ -53,6 +53,7 @@ class Mapp extends Component {
   }
 
   render() {
+    const searchResult = this.props.search.selectedSuggestion;
     return (
       <div>
         <MuiThemeProvider>
@@ -67,6 +68,16 @@ class Mapp extends Component {
                 onDestClick={this.handleDestClick.bind(this)}
                 selectedFeature={this.props.sites.clickedDest}
               />
+              {searchResult && (
+                <JaneLayer id="searchResult" hidden>
+                  <Marker
+                    feature={searchResult}
+                    label={searchResult.properties.title}
+                    flyTo
+                  />
+                </JaneLayer>
+              )}
+
               <LocalSearch>
                 <SearchBar />
               </LocalSearch>
